@@ -1,0 +1,26 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  webissues: 
+    build: .
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - webissues-data:/var/lib/webissues/data
+
+volumes:
+  mysql-data:
+  webissues-data:
