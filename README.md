@@ -3,7 +3,8 @@
 
 ## Installation
 
-docker-compose up
+docker-compose  -f docker-compose-db.yml up -d 
+docker-compose  -f docker-compose-webissues.yml up -d
 
 ## configure database
 docker exec -it webissues-as-docker_db_1 bash
@@ -13,6 +14,10 @@ mysql -u root -p
 > CREATE USER 'webissues'@'%' IDENTIFIED WITH mysql_native_password BY '<webissues-password>';
 > CREATE DATABASE webissues;
 > GRANT ALL PRIVILEGES ON `webissues` . * TO 'webissues'@'%';
+
+### maria db
+SET old_passwords=0;
+CREATE USER 'webissues'@'%' IDENTIFIED WITH BY '<webissues-password>';
 
 #### Test connection
 
