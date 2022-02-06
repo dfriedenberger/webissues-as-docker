@@ -13,14 +13,5 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
-  webissues: 
-    build: .
-    restart: always
-    ports:
-      - "8080:80"
-    volumes:
-      - webissues-data:/var/lib/webissues/data
-
 volumes:
   mysql-data:
-  webissues-data:
