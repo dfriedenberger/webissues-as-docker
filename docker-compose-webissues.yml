@@ -1,0 +1,15 @@
+# Use root/example as user/password credentials
+version: '2'
+
+services:
+
+  webissues: 
+    build: .
+    restart: always
+    ports:
+      - "8844:80"
+    volumes:
+      - webissues-data:/var/lib/webissues/data
+
+volumes:
+  webissues-data:
