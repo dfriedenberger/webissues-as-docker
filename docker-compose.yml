@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+
+  db:
+    hostname: db
+    container_name: webissues-db
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  webissues: 
+    build: .
+    hostname: webissues
+    container_name: webissues-web
+    restart: always
+    ports:
+      - "8844:443"
+    volumes:
+      - webissues-data:/var/lib/webissues/data
+
+volumes:
+  mysql-data:
+  webissues-data:

@@ -11,7 +11,7 @@ docker-compose  -f docker-compose-webissues.yml up -d
 ### Configure database
 
 ```
-docker exec -it webissues-as-docker_db_1 bash
+docker exec -it webissues-db bash
 root@aaaa:/#mysql -u root -p
 > ALTER USER 'root'@'localhost' IDENTIFIED BY '<root-password>';
 > CREATE USER 'webissues'@'%' IDENTIFIED WITH mysql_native_password BY '<webissues-password>';
