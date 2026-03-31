@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:buster-20240612
 
 RUN apt-get update
 
